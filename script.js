@@ -60,8 +60,12 @@ renderInformation = (res) => {
   let informationArray = [] //blank array
 
   for (let i = 0; i < res.length; i++) {
-    informationArray.push([`${res[i].summary}`][`${res[i].image}`]);
+    informationArray.push([`${res[i].summary}`,`${res[i].image}`]);
+
+    
   }
 
   responseField.innerHTML = `${informationArray}`;
+
+  // probably need to build a loop to add items sequentially?
 }

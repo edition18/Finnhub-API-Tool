@@ -1,7 +1,7 @@
 // Selecting page elements
-  const inputField = document.querySelector('#input');
-  const submit = document.querySelector('#submit');
-  const responseField = document.querySelector('#responseField');
+  const inputField = document.querySelector('.input');
+  const submit = document.querySelector('.submit');
+  const responseField = document.querySelector('.responseField');
 
 //declarations
   const url = "https://finnhub.io/api/v1"

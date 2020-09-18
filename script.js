@@ -78,7 +78,10 @@ renderInformation = (res) => {
 
 
 function testFunction(){
-  document.getElementById("responseField").appendChild(document.createElement("h2"));
+  let para = document.createElement("P");
+  para.innerHTML = "test";
+  
+  document.getElementById("responseField").appendChild(para);
   console.log("h2 created");
 }
 

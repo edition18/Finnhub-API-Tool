@@ -2,6 +2,7 @@
   const inputField = document.querySelector('.input');
   const submit = document.querySelector('.submit');
   const responseField = document.querySelector('#responseField');
+  const test = document.querySelector('.test');
 
 //declarations
   const url = "https://finnhub.io/api/v1"
@@ -68,10 +69,17 @@ renderInformation = (res) => {
 
   for (let i = 0; i < informationArray.length; i++) {
     // how to appendchild with every loop?
-
   }
 
   responseField.innerHTML = `${informationArray}`;
 
   // probably need to build a loop to add items sequentially?
 }
+
+
+function testFunction(){
+  document.getElementById("responseField").appendChild(document.createElement("h2"));
+  console.log("h2 created");
+}
+
+test.addEventListener('click', testFunction);

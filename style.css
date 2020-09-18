@@ -17,3 +17,7 @@ div.responseField {
   color: red;
   text-align: center;
 }
+
+button.test {
+  color: green;
+}

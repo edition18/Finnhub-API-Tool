@@ -64,16 +64,15 @@ renderInformation = (res) => {
     //informationArray properties
     //summary > image 
     informationArray.push([`<h1>${res[i].headline}</h1>`,`<img class="news" src="${res[i].image}"></img>`]);
-   
   }
+
 
   for (let i = 0; i < informationArray.length; i++) {
-    // how to appendchild with every loop?
+      let subPara = document.createElement("P");
+      subPara.innerHTML = `${informationArray[i][0]}${informationArray[i][1]}`;
+        document.getElementById("responseField").appendChild(subPara);
   }
-
-  responseField.innerHTML = `${informationArray}`;
-
-  // probably need to build a loop to add items sequentially?
+  
 }
 
 

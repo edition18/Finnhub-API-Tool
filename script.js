@@ -1,7 +1,7 @@
 // Selecting page elements
   const inputField = document.querySelector('.input');
   const submit = document.querySelector('.submit');
-  const responseField = document.querySelector('.responseField');
+  const responseField = document.querySelector('#responseField');
 
 //declarations
   const url = "https://finnhub.io/api/v1"
@@ -60,9 +60,15 @@ renderInformation = (res) => {
   let informationArray = [] //blank array
 
   for (let i = 0; i < res.length; i++) {
-    informationArray.push([`${res[i].summary}`,`<img class="news" src="${res[i].image}"></img>`]);
+    //informationArray properties
+    //summary > image 
+    informationArray.push([`<h1>${res[i].headline}</h1>`,`<img class="news" src="${res[i].image}"></img>`]);
+   
+  }
 
-    
+  for (let i = 0; i < informationArray.length; i++) {
+    // how to appendchild with every loop?
+
   }
 
   responseField.innerHTML = `${informationArray}`;

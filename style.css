@@ -1,17 +1,19 @@
 img {
-  max-width: 100%;
+  max-width: 100%; /* of the container */
   height: auto;
 }
 
 * {
   box-sizing: border-box;
-  
+  font: Arial;
 }
 
 div.responseField {
   border: 1px solid black;
 }
 
-div p{
+
+.responseField h1 {
   color: red;
+  text-align: center;
 }

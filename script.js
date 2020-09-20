@@ -30,7 +30,7 @@ const getResult = () => {
 submit.addEventListener('click', getResult);
 
 renderNewsResponse = (res) => {
-  if(!res){
+  if(!res){ //falsey
     console.log(res.status)
   }
   // in case res comes back as a blank array
@@ -63,25 +63,24 @@ renderInformation = (res) => {
   for (let i = 0; i < res.length; i++) {
     //informationArray properties
     //summary > image 
-    informationArray.push([`<h1>${res[i].headline}</h1>`,`<img class="news" src="${res[i].image}"></img>`]);
+    informationArray.push([`<p>${res[i].headline}</p>`,`<img class="news" src="${res[i].image}"></img>`]);
   }
 
 
   for (let i = 0; i < informationArray.length; i++) {
-      let subPara = document.createElement("P");
+      let subPara = document.createElement("div");
       subPara.innerHTML = `${informationArray[i][0]}${informationArray[i][1]}`;
         document.getElementById("responseField").appendChild(subPara);
   }
-  
+
 }
 
 
-function testFunction(){
-  let para = document.createElement("P");
-  para.innerHTML = "test";
-  
-  document.getElementById("responseField").appendChild(para);
-  console.log("h2 created");
+function clearResponseField(){
+  let target = document.getElementById("responseField");
+  while (target.hasChildNodes()) {
+    target.innerHTML = "";
+  }
 }
 
-test.addEventListener('click', testFunction);
+test.addEventListener('click', clearResponseField);

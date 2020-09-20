@@ -13,9 +13,11 @@ div.responseField {
 }
 
 
-.responseField h1 {
-  color: red;
-  text-align: center;
+#responseField div p {
+  color: blue;
+  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 button.test {

@@ -8,6 +8,11 @@ img {
   font: Arial;
 }
 
+ul.menubar li {
+  display: inline;
+}
+
+
 div.responseField {
   border: 1px solid black;
 }
@@ -23,3 +28,4 @@ div.responseField {
 button.test {
   color: green;
 }
+

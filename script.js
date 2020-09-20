@@ -7,7 +7,6 @@ const getResult = () => {
 
   xhr.onreadystatechange = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
-      //renderNewsResponse(xhr.response);
       renderInformation(xhr.response);
     }
   };
@@ -15,8 +14,6 @@ const getResult = () => {
   xhr.send();
 
 }
-
-newsPull.addEventListener('click', getResult);
 
 renderInformation = (res) => {
   if(!res){
@@ -44,7 +41,6 @@ renderInformation = (res) => {
 
 }
 
-
 function clearResponseField(){
   let target = document.getElementById("responseField");
   while (target.hasChildNodes()) {
@@ -52,4 +48,22 @@ function clearResponseField(){
   }
 }
 
-clearButton.addEventListener('click', clearResponseField);
+const fetchResult = () => {
+  const endPoint = url + news + tokenParam + apiKey;
+  fetch(endPoint).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Request failed!');
+  }, networkError => { // note the , is to record the fail procedures
+      console.log(networkError.message);
+  }).then(jsonResponse => { 
+    console.log(jsonResponse[0].headline);
+    return jsonResponse; //normal
+  });
+}
+
+async function renderNews () {
+  await renderInformation(fetchResult);
+}
+

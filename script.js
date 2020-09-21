@@ -32,19 +32,32 @@ function clearResponseField(){
 
 const fetchResult = async() => {
   const endPoint = url + news + tokenParam + apiKey;
-  
+  console.log(endPoint);
   return fetch(endPoint).then(response => {
     if (response.ok) {
       return response.json();
     }
     throw new Error('Request failed!');
   }).then(jsonResponse => { 
-    return jsonResponse; //normal
+    return jsonResponse; 
   }).catch(error => console.log(error));
 };
 
+
+
+
 async function showNews () {
+  clearResponseField();
   const result = await fetchResult(); 
   renderNews(result);
+}
+
+async function createGraph () {
+  clearResponseField();
+  const jsonResponse = await templateFetch('https://finnhub.io/api/v1/stock/metric?symbol=AAPL&metric=all&token=btd1ssn48v6q5ac9egf0');
+  console.log(jsonResponse.series['annual']['cashRatio']);
+
+  // need to think about how to pull the useful sub categories out
+
 }
 

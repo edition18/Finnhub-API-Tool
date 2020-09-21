@@ -4,3 +4,6 @@
   const tokenParam = "&token=";
   const news = "/news?category=general"
 
+//global declarations
+  
+

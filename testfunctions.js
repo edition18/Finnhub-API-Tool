@@ -8,18 +8,33 @@
 
 async function createGraph () {
   clearResponseField();
+
+  var table = document.createElement('tr');
+  table.setAttribute("id", table);
+
   const jsonResponse = await templateFetch('https://finnhub.io/api/v1/stock/metric?symbol=AAPL&metric=all&token=btd1ssn48v6q5ac9egf0');
-console.log(jsonResponse.series.annual.cashRatio.length);
+ 
   //console.log(jsonResponse.series.annual.cashRatio[0].period);
-  for (let i = 0; i < jsonResponse.series.annual.cashRatio.length; i++){
-    console.log(jsonResponse.series.annual.cashRatio[i].period);
+
+  //var firstRow = document.createElement('tr');
+  //firstRow.setAttribute("id", table);
+  //document.getElementById("table").appendChild(firstRow);
+ 
+  var startingRow = document.createElement('td');
+  startingRow.innerHTML = "&nbsp;&nbsp;";
+  document.getElementById("responseField").appendChild(startingRow);
+
+
+  for (let i = 0; i < (jsonResponse.series.annual.cashRatio.length - 15); i++){
+
+
+    var newRow = document.createElement('td');
+    newRow.innerHTML = jsonResponse.series.annual.cashRatio[i].period
+    newRow.setAttribute("id", `${jsonResponse.series.annual.cashRatio[i].period}`);
+    document.getElementById("responseField").appendChild(newRow);
   }
 
 
-  //var table = document.createElement('tr');
-  //table.setAttribute("id", table);
-
-  
 
 
   for (var key of Object.keys(jsonResponse.series.annual)) {
